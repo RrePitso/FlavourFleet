@@ -1,19 +1,44 @@
 {
-  "version": 2,
+  "version": 3,
+  "name": "flavourfleet",
+  "projects": [
+    {
+      "name": "flavourfleet-client",
+      "rootDirectory": "client"
+    }
+  ],
   "builds": [
     {
       "src": "client/package.json",
       "use": "@vercel/static-build",
       "config": {
-        "distDir": "client/dist"
+        "distDir": "dist"
       }
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/index.html"
+      "dest": "/index.html",
+      "status": 200
     }
-  ]
+  ],
+  "env": {
+    "VITE_FIREBASE_API_KEY": "",
+    "VITE_FIREBASE_PROJECT_ID": "",
+    "VITE_FIREBASE_APP_ID": ""
+  },
+  "build": {
+    "env": {
+      "VITE_FIREBASE_API_KEY": "",
+      "VITE_FIREBASE_PROJECT_ID": "",
+      "VITE_FIREBASE_APP_ID": ""
+    }
+  },
+  "node": {
+    "version": "22.x"
+  }
 }
+
+
 
